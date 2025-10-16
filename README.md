@@ -15,36 +15,17 @@ Un teclado hexagonal interactivo para explorar música microtonal en el sistema 
   - Visualización de todas las notas activas simultáneamente
   - Contador de voces activas
   - Información de frecuencia y octava por cada nota
-  - Chips de colores según la octava
   - Orden cronológico de notas pulsadas
 - **Información monofónica**: Muestra la última nota tocada
 - **Integración con Max/MSP** mediante `window.max.outlet()`
 - **Soporte completo de teclado QWERTY** (31 teclas + controles)
-- **Diseño responsive** que se adapta a diferentes tamaños de pantalla
 
 ## Uso
 
 ### Online
 Simplemente abre `index.html` en tu navegador web moderno (Chrome, Firefox, Edge, Safari).
 
-## Escalas incluidas
-
-### Modos Griegos
-- **Jónico (Mayor)**: Do-Re-Mi-Fa-Sol-La-Si
-- **Dórico**: Do-Re-Mib-Fa-Sol-La-Sib
-- **Frigio**: Do-Reb-Mib-Fa-Sol-Lab-Sib
-- **Lidio**: Do-Re-Mi-Fa#-Sol-La-Si
-- **Mixolidio**: Do-Re-Mi-Fa-Sol-La-Sib
-- **Eólico (Menor)**: Do-Re-Mib-Fa-Sol-Lab-Sib
-- **Locrio**: Do-Reb-Mib-Fa-Solb-Lab-Sib
-
-### Escalas Especiales
-- **Cromática**: Las 31 notas del sistema
-- **Tonos Enteros**: 6 notas separadas por tonos enteros
-- **Pentatónica Mayor**: 5 notas en modo mayor
-- **Pentatónica Menor**: 5 notas en modo menor
-- **Blues**: Escala blues de 6 notas
-- **Armónica Menor**: Escala armónica menor de 7 notas
+## Escalas incluidas (trabajo en proceso)
 
 ## Controles
 
@@ -89,18 +70,6 @@ Simplemente abre `index.html` en tu navegador web moderno (Chrome, Firefox, Edge
 - **Combinar escalas**: Activar modo de superposición de escalas
 - **Limpiar escalas**: Resetear visualización de escalas
 
-### Atajos útiles
-- Mantén presionadas múltiples teclas para tocar acordes
-- Usa las flechas mientras tocas para cambiar de octava en tiempo real
-- El espacio te permite volver rápidamente a la octava central
-
-## Teoría del 31-TET
-
-El temperamento igual de 31 notas divide la octava en 31 partes iguales:
-- **Razón**: 2^(1/31) ≈ 1.0226
-- **Intervalo**: 1200/31 ≈ 38.71 centavos por paso
-- **Frecuencia base**: A0 = 27.5 Hz
-
 ### Fórmula para calcular frecuencias:
 ```
 f(n) = f₀ × 2^(n/31)
@@ -108,16 +77,6 @@ f(n) = f₀ × 2^(n/31)
 Donde:
 - `f₀` es la frecuencia base (27.5 Hz)
 - `n` es el número de pasos desde la nota base
-
-
-## Comparación con otros temperamentos
-
-| Intervalo | 12-TET | 31-TET | Justo | Error 31-TET |
-|-----------|--------|--------|-------|--------------|
-| Tercera Mayor | 400¢ | 387¢ | 386¢ | +1¢ (excelente!) |
-| Tercera Menor | 300¢ | 310¢ | 316¢ | -6¢ |
-| Quinta Justa | 700¢ | 697¢ | 702¢ | -5¢ (muy bueno) |
-| Cuarta Justa | 500¢ | 503¢ | 498¢ | +5¢ |
 
 ## Disposición del teclado
 
