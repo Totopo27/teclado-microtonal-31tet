@@ -27,11 +27,6 @@ Un teclado hexagonal interactivo para explorar música microtonal en el sistema 
 ### Online
 Simplemente abre `index.html` en tu navegador web moderno (Chrome, Firefox, Edge, Safari).
 
-### Con Max/MSP
-1. Abre el proyecto en Max/MSP
-2. Carga el archivo HTML en un objeto `jweb`
-3. El teclado enviará mensajes mediante `window.max.outlet(noteValue, noteName, velocity)`
-
 ## Escalas incluidas
 
 ### Modos Griegos
