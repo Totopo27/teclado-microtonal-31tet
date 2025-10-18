@@ -2,16 +2,18 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="description" content="Teclado hexagonal interactivo para música microtonal en temperamento 31-TET">
   <meta name="keywords" content="música microtonal, 31-TET, teclado hexagonal, Max/MSP">
   <meta name="author" content="Tu Nombre">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
   <title>Teclado Microtonal 31-TET</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <div class="header">
-    <h1> Teclado Microtonal 31-TET</h1>
+    <h1>🎹 Teclado Microtonal 31-TET</h1>
     <p>Sistema de temperamento igual de 31 notas por octava</p>
   </div>
 
@@ -89,6 +91,11 @@
   <div class="keyboard-wrapper">
     <div class="keyboard-container" id="keyboard-container"></div>
   </div>
+
+  <footer class="footer">
+    <p>Desarrollado para exploración musical microtonal | Compatible con Max/MSP</p>
+    <p>Temperamento 31-TET: 31 divisiones iguales de la octava (≈38.71 centavos por paso)</p>
+  </footer>
 
   <script src="js/config.js"></script>
   <script src="js/scales.js"></script>
