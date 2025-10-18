@@ -55,11 +55,34 @@ function generateKeyboard() {
     
     const innerHex = hexagon.querySelector('.hexagon-in2');
     
-    innerHex.addEventListener('mousedown', () => playNote(config));
-    innerHex.addEventListener('mouseup', () => stopNote(config));
+    // Eventos de mouse (para desktop)
+    innerHex.addEventListener('mousedown', (e) => {
+      e.preventDefault();
+      playNote(config);
+    });
+    innerHex.addEventListener('mouseup', (e) => {
+      e.preventDefault();
+      stopNote(config);
+    });
     innerHex.addEventListener('mouseleave', () => {
       if (activeKeys.has(config.id)) stopNote(config);
     });
+    
+    // Eventos táctiles (para móviles) - SOPORTE MULTI-TOUCH
+    innerHex.addEventListener('touchstart', (e) => {
+      e.preventDefault(); // Prevenir eventos de mouse duplicados
+      playNote(config);
+    }, { passive: false });
+    
+    innerHex.addEventListener('touchend', (e) => {
+      e.preventDefault();
+      stopNote(config);
+    }, { passive: false });
+    
+    innerHex.addEventListener('touchcancel', (e) => {
+      e.preventDefault();
+      stopNote(config);
+    }, { passive: false });
     
     // Guardar referencia al elemento para acceso directo
     config.element = innerHex;
@@ -67,7 +90,22 @@ function generateKeyboard() {
     container.appendChild(hexagon);
   });
   
+  // Agregar listener global para manejar toques que salen del área
+  document.addEventListener('touchend', handleGlobalTouchEnd);
+  document.addEventListener('touchcancel', handleGlobalTouchEnd);
+  
   updateScaleDisplay();
+}
+
+// Manejar cuando el toque sale completamente de la pantalla
+function handleGlobalTouchEnd(e) {
+  // Si no quedan toques activos, detener todas las notas
+  if (e.touches.length === 0) {
+    // Opcional: descomentar si quieres que se detengan todas al levantar todos los dedos
+    // activeKeys.forEach((data, keyId) => {
+    //   stopNote(data.config);
+    // });
+  }
 }
 
 // Reproducir nota
