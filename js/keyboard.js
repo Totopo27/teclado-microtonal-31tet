@@ -1,5 +1,5 @@
 // js/keyboard.js
-// Lógica del teclado hexagonal para 31-TET
+// Lógica del teclado hexagonal para 31-TET - VERSIÓN SIN WEBSOCKET (original)
 
 // Estado de la aplicación
 let currentOctave = 0;
@@ -108,7 +108,7 @@ function handleGlobalTouchEnd(e) {
   }
 }
 
-// Reproducir nota
+// ✅ REPRODUCIR NOTA - VERSIÓN ORIGINAL SIN WEBSOCKET
 function playNote(config) {
   if (activeKeys.has(config.id)) return;
   
@@ -124,7 +124,7 @@ function playNote(config) {
   const frequency = getFrequency(config.value);
   const realOctave = getRealOctave(config.value) + currentOctave;
   
-  // Enviar a Max/MSP si está disponible
+  // Enviar a Max/MSP si está disponible (método original)
   if (window.max && typeof window.max.outlet === 'function') {
     window.max.outlet(adjustedValue, config.name, "127");
   }
@@ -138,7 +138,7 @@ function playNote(config) {
   updatePolyphonyDisplay();
 }
 
-// Detener nota
+// ✅ DETENER NOTA - VERSIÓN ORIGINAL SIN WEBSOCKET
 function stopNote(config) {
   if (!activeKeys.has(config.id)) return;
   
@@ -147,7 +147,9 @@ function stopNote(config) {
   element.classList.remove('active');
   
   const adjustedValue = config.value + (currentOctave * 31);
+  const frequency = getFrequency(config.value);
   
+  // Enviar a Max/MSP (método original)
   if (window.max && typeof window.max.outlet === 'function') {
     window.max.outlet(adjustedValue, config.name, "0");
   }
